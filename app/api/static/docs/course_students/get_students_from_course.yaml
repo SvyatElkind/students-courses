@@ -1,0 +1,37 @@
+tags:
+  - Course_Students
+summary: Get students from course.
+description: Finds all students related to the course with a given name.
+parameters:
+  - in: path
+    name: course
+    description: Course name.
+    type: string
+    required: true
+responses:
+  200:
+    description: List of students.
+    schema:
+      type: array
+      items:
+        $ref: "#/definitions/Students"
+  404:
+    description: No students were found.
+
+definitions:
+  Students:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 1
+      first_name:
+        type: string
+        example: David
+      last_name:
+        type: string
+        example: Bo
+      group_id:
+        type: string
+        example: AA-11
+

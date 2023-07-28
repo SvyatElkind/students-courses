@@ -1,0 +1,33 @@
+tags:
+  - Student_Courses
+summary: Add a student to the course.
+description: Add a student to the course (from a list).
+parameters:
+  - name: student_id
+    in: path
+    description: ID of student.
+    type: integer
+    required: true
+  - in: body
+    name: courses
+    description: Courses to which student should be added.
+    schema:
+      $ref: "#/definitions/Courses"
+responses:
+  200:
+    description: Student was added to provided courses.
+  400:
+    description: No courses were provided.
+  404:
+    description: Either student or course was not found.
+
+definitions:
+  Courses:
+    required:
+      - courses
+    properties:
+      courses:
+        type: array
+        items:
+          type: string
+        example: ["Art", "History"]

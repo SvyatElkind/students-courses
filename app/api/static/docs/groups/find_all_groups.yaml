@@ -1,0 +1,20 @@
+tags:
+  - Groups
+summary: Find all groups.
+description: Find all groups with less or equals student count.
+parameters:
+  - in: query
+    name: student_count
+    description: Student count.
+    type: integer
+    required: true
+responses:
+  200:
+    description: List of groups.
+    schema:
+      type: array
+      items:
+        type: string
+      example: ["AA-11", "BB-22", "CC-33"]
+  404:
+    description: No students were found.

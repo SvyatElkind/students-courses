@@ -1,0 +1,39 @@
+tags:
+  - Student
+summary: Create student.
+description: Creates new student.
+produces:
+  - application/json
+parameters:
+  - in: body
+    name: student
+    description: Student to create.
+    schema:
+      $ref: "#/definitions/Student"
+responses:
+  201:
+    description: Student was created.
+    headers:
+      Location:
+        schema:
+          type: string
+        description: URL of created student
+  400:
+    description: First and Last name are missing or group with provided id does not exist.
+
+definitions:
+  Student:
+    type: object
+    required:
+      - first_name
+      - last_name
+    properties:
+      first_name:
+        type: string
+        example: David
+      last_name:
+        type: string
+        example: Bo
+      group_id:
+        type: string
+        example: AA-11

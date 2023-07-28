@@ -1,0 +1,15 @@
+tags:
+  - Student
+summary: Delete student.
+description: Deletes student with specific id.
+parameters:
+  - name: student_id
+    in: path
+    description: ID of student to delete.
+    type: integer
+    required: true
+responses:
+  200:
+    description: Student was deleted.
+  404:
+    description: Student with provided ID was not found.
